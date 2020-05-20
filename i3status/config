@@ -20,7 +20,7 @@ order += "battery all"
 order += "tztime local"
 
 disk "/" {
-        format = "HDD: %avail/%total"
+        format = "HDD: %used/%total"
 }
 
 cpu_usage {
@@ -28,7 +28,7 @@ cpu_usage {
 }
 
 cpu_temperature 0 {
-	format = "T:%degrees °C"
+	format = "T: %degrees °C"
 }
 
 memory {
