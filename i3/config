@@ -4,20 +4,15 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
-# You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 0
-smart_gaps on
-smart_borders on
-gaps inner 10
-
-#focus_on_window_activation focus
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Win key
 set $mod Mod4
+
+# Alt key
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -50,16 +45,16 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite ;workspace $ws4
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+r exec dmenu_run
+bindsym $alt+d exec dmenu_run
 
 # rofi support
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec "rofi -combi-modi window#drun#ssh -theme solarized -font 'hack 14' -show combi -icon-theme 'Papirus' -show-icons"
 #bingsym Alt+Tab exec rofi -show window
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -125,7 +120,7 @@ set $ws3 "3:IM"
 set $ws4 "4:Termimal"
 set $ws5 "5:VBox"
 set $ws6 "6:Misc"
-set $ws7 "7"
+set $ws7 "7:Code"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -214,27 +209,103 @@ mode "$mode_system" {
 
 bindsym $mod+ctrl+0 mode "$mode_system"
 
+# gaps settings
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 0
+smart_gaps on
+smart_borders on
+gaps inner 10
+
+# Gaps mode
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+# support for kde plasma
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [title="桌面 — Plasma"] kill; floating enable; border none
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+#for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"] 
+
+# for plasma notification positoin
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move position 1550px 80px
+
+focus_on_window_activation focus
+for_window [urgent=latest] focus
+
 # key binding
 # ranger file manager
-bindsym $mod+ctrl+f exec --no-startup-id termite -e ranger; workspace $ws4
+bindsym $alt+f exec --no-startup-id termite -e ranger
+
+# thunar file manager
+bindsym $alt+e exec --no-startup-id thunar
 
 # htop
-bindsym ctrl+Shift+Escape exec termite -e htop; workspace $ws4
+bindsym ctrl+Shift+Escape exec termite -e htop
 
 # telegram
-bindsym $mod+ctrl+t exec --no-startup-id telegram-desktop; workspace $ws3
+bindsym $alt+t exec --no-startup-id telegram-desktop
 
 # google-chrome
-bindsym $mod+ctrl+b exec --no-startup-id google-chrome-stable; workspace $ws2
+bindsym $alt+w exec --no-startup-id google-chrome-stable
 
 # qclash
-bindsym $mod+ctrl+c exec --no-startup-id /opt/qclash/bin/qclash
+bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
-#
+
 #autostart
-
 # picom(compton) compositor
 exec --no-startup-id picom -b
+
+# polkit authentication agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # set wallpaper with feh
 exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpaper/ &"
@@ -253,5 +324,6 @@ exec --no-startup-id "/opt/qclash/bin/qclash &"
 assign [class="Google-chrome"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Termite"] $ws4
-
+assign [class="VirtualBox Manager"] $ws5
+assign [class="code-oss"] $ws7
 
