@@ -191,7 +191,7 @@ bar {
 }
 
 # set lock,logout,suspend,hibernate,reboot,shutdown
-set $Locker i3lock && sleep 1
+set $Locker i3lock -i ~/.i3lock.png && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -207,7 +207,9 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+ctrl+0 mode "$mode_system"
+bindsym ctrl+$mod+0 mode "$mode_system"
+bindsym ctrl+$alt+Delete mode "$mode_system"
+bindsym ctrl+$alt+l exec --no-startup-id $Locker
 
 # gaps settings
 # You can also use any non-zero value if you'd like to have a border
@@ -319,9 +321,12 @@ exec --no-startup-id "fcitx5 &"
 # for clip support
 exec --no-startup-id "xfce4-clipman &"
 
+# generate i3lock image
+exec --no-startup-id "$HOME/.i3lock-gen-image.sh &"
+
 # my apps
 # qclash for proxy
-exec --no-startup-id "/opt/qclash/bin/qclash &"
+exec --no-startup-id "/opt/qclash/qclash.sh"
 
 #exec --no-startup-id "telegram-desktop &"
 #exec --no-startup-id "google-chrome-stable &"
