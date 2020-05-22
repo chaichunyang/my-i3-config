@@ -299,6 +299,9 @@ bindsym $alt+w exec --no-startup-id google-chrome-stable
 # qclash
 bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
+# screen shot
+bindsym Print exec --no-startup-id xfce4-screenshooter -cf
+bindsym $alt+a exec --no-startup-id xfce4-screenshooter -cr
 
 #autostart
 # picom(compton) compositor
@@ -313,6 +316,8 @@ exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpa
 # start fcitx5
 exec --no-startup-id "fcitx5 &"
 
+# for clip support
+exec --no-startup-id "xfce4-clipman &"
 
 # my apps
 # qclash for proxy
