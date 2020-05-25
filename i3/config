@@ -31,7 +31,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -55,7 +55,8 @@ bindsym $alt+d exec dmenu_run
 
 # rofi support
 bindsym $mod+d exec "rofi -combi-modi window#drun#ssh -theme solarized -font 'hack 14' -show combi -icon-theme 'Papirus' -show-icons"
-#bingsym Alt+Tab exec rofi -show window
+bindsym $alt+Tab exec rofi -show window
+bindsym ctrl+$mod+e exec rofi -show emoji
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -185,10 +186,10 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        position top
-}
+#bar {
+#        status_command i3status
+#        position top
+#}
 
 # set lock,logout,suspend,hibernate,reboot,shutdown
 set $Locker i3lock -i ~/.i3lock.png && sleep 1
@@ -208,7 +209,7 @@ mode "$mode_system" {
 }
 
 bindsym ctrl+$mod+0 mode "$mode_system"
-bindsym ctrl+$alt+Delete mode "$mode_system"
+#bindsym ctrl+$alt+Delete mode "$mode_system"
 bindsym ctrl+$alt+l exec --no-startup-id $Locker
 
 # gaps settings
@@ -276,9 +277,17 @@ for_window [class="(?i)*nextcloud*"] floating disable
 #for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"] 
 
-# for plasma notification positoin
+# for kde notification positoin
 for_window [class="plasmashell" window_type="notification"] floating enable, border none, move position 1550px 80px
 
+# for kde auto start powermanager
+exec --no-startup-id "/usr/lib/org_kde_powerdevil &"
+
+# for kde backlight
+#bindsym XF86MonBrightnessUp exec --no-startup-id qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness $(expr $(qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightness) + 375)
+#bindsym XF86MonBrightnessDown exec --no-startup-id qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness $(expr $(qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightness) - 375)
+
+# auto switch workspace
 focus_on_window_activation focus
 for_window [urgent=latest] focus
 
@@ -287,7 +296,9 @@ for_window [urgent=latest] focus
 bindsym $alt+f exec --no-startup-id termite -e ranger
 
 # thunar file manager
-bindsym $alt+e exec --no-startup-id thunar
+#bindsym $alt+e exec --no-startup-id thunar
+bindsym $alt+e exec --no-startup-id dolphin
+
 
 # htop
 bindsym ctrl+Shift+Escape exec termite -e htop
@@ -302,15 +313,20 @@ bindsym $alt+w exec --no-startup-id google-chrome-stable
 bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
 # screen shot
-bindsym Print exec --no-startup-id xfce4-screenshooter -cf
-bindsym $alt+a exec --no-startup-id xfce4-screenshooter -cr
+#bindsym Print exec --no-startup-id xfce4-screenshooter -cf
+#bindsym $alt+a exec --no-startup-id xfce4-screenshooter -cr
+#bindsym Print exec --no-startup-id spectacle -bfcn
+#bindsym $alt+a exec --no-startup-id spectacle -brcn
+bindsym Print exec --no-startup-id flameshot full -c
+bindsym $alt+a exec --no-startup-id flameshot gui
 
 #autostart
 # picom(compton) compositor
 exec --no-startup-id picom -b
 
 # polkit authentication agent
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # set wallpaper with feh
 exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpaper/ &"
@@ -318,8 +334,13 @@ exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpa
 # start fcitx5
 exec --no-startup-id "fcitx5 &"
 
+# for notifications support, notification-daemon
+exec --no-startup-id "twmnd &"
+
 # for clip support
-exec --no-startup-id "xfce4-clipman &"
+#exec --no-startup-id "xfce4-clipman &"
+#exec --no-startup-id "klipper &"
+#exec --no-startup-id "gpaste-client &"
 
 # generate i3lock image
 exec --no-startup-id "$HOME/.i3lock-gen-image.sh &"
@@ -335,5 +356,13 @@ assign [class="Google-chrome"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Termite"] $ws4
 assign [class="VirtualBox Manager"] $ws5
+#for_window [class="VirtualBox Machine"] floating enable; border none;
+
 assign [class="code-oss"] $ws7
+
+
+
+# polybar
+#
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 
