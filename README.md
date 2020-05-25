@@ -24,12 +24,15 @@ config i3wm from ZERO, this is some my config backup.
 - polybar
 
 ## key binding
-ctrl+Mod+0:lock, logout, suspend, hibernate, shutdown
-Print: print full screen
-Alt+a: select a region
-Alt+f: console file manager
-Alt+e: GUI file manager
-Alt+d: dmenu
+- ctrl+Mod+0:lock, logout, suspend, hibernate, shutdown
+- Print: print full screen
+- Alt+a: select a region
+- Alt+f: console file manager
+- Alt+e: GUI file manager
+- Alt+d: dmenu
+- Alt+w: google-chrome
+- Alt+t: Telegram
+- Alt+c: qclash
 
 ## i3status (use polybar instead)
 - Disk
