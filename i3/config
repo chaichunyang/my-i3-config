@@ -322,7 +322,7 @@ bindsym $alt+a exec --no-startup-id flameshot gui
 
 #autostart
 # picom(compton) compositor
-exec --no-startup-id picom -b
+exec --no-startup-id picom -b --inactive-dim 0.4
 
 # polkit authentication agent
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -357,7 +357,7 @@ assign [class="TelegramDesktop"] $ws3
 assign [class="Termite"] $ws4
 assign [class="VirtualBox Manager"] $ws5
 #for_window [class="VirtualBox Machine"] floating enable; border none;
-
+#for_window [class="VirtualBoxVM"] floating enable; border none;
 assign [class="code-oss"] $ws7
 
 
