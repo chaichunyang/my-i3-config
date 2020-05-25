@@ -1,5 +1,6 @@
 # my-i3-config
 config i3wm from ZERO, this is some my config backup.
+![screen](screenshots/screen.png)
 
 ## ToDo
 1. Auto lock screen after a few minutes
