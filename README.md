@@ -2,7 +2,8 @@
 config i3wm from ZERO, this is some my config backup.
 
 ## ToDo
-1. Awesome Polybar
+1. Auto lock screen after a few minutes
+2. Awesome Polybar
 
 ## Important
 1. NetworkManager Front-ends (nmcli-dmenu curr)
@@ -10,8 +11,10 @@ config i3wm from ZERO, this is some my config backup.
 3. key binding (personal like)
 4. Terminal emulator (termite curr)
 5. Compositor (Picom[Compton] curr)
+6. from ~/.wallpaper Random wallpaper image (feh curr)
+7. from ~/.wallpaper Random lock screen image (i3lock curr)
 
-## i3w (gaps)
+## i3wm (gaps)
 - termite, for terminal emulator (Mod+Enter)
 - feh, for wallpaper (random the image file in `~/.wallpaper`)
 - rofi, for app launcher (Mod+d)
@@ -22,9 +25,12 @@ config i3wm from ZERO, this is some my config backup.
 - thunar or dolphin, for GUI file manager
 - polkit-gnome-authentication-agent-1 or polkit-kde-authentication-agent-1, for Authentication agents
 - polybar
+- flameshot, for screent shot
+- twmn, for Desktop notifications
 
 ## key binding
-- ctrl+Mod+0:lock, logout, suspend, hibernate, shutdown
+- ctrl+Mod+0: Session lock, logout, suspend, hibernate, shutdown
+- ctrl+Mod+l: lock screen
 - Print: print full screen
 - Alt+a: select a region
 - Alt+f: console file manager
