@@ -11,7 +11,6 @@ config i3wm from ZERO, this is some my config backup.
 4. Terminal emulator (termite curr)
 5. Compositor (Picom[Compton] curr)
 
-i3wm basic config
 ## i3w (gaps)
 - termite, for terminal emulator (Mod+Enter)
 - feh, for wallpaper (random the image file in `~/.wallpaper`)
