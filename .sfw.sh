@@ -7,3 +7,4 @@ feh -rz --bg-fill --no-fehbg ~/.wallpaper/
 # lockscreen
 ~/.i3lock-gen-image.sh ~/.wallpaper/
 
+notify-send SFW ENABLE
