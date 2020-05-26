@@ -20,7 +20,11 @@ font pango:monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+#font pango:DejaVu Sans Mono 12
+
+
+# lock command
+set $Locker ~/.lockscreen.sh
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -204,7 +208,7 @@ bindsym $mod+$alt+Up resize shrink height 10 px or 10 ppt
 bindsym $mod+$alt+Right resize grow width 10 px or 10 ppt
 
 # set lock,logout,suspend,hibernate,reboot,shutdown
-set $Locker i3lock -i ~/.i3lock.png && sleep 1
+#set $Locker i3lock -i ~/.i3lock.png && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -303,6 +307,7 @@ exec --no-startup-id "/usr/lib/org_kde_powerdevil &"
 focus_on_window_activation focus
 for_window [urgent=latest] focus
 
+bindsym $mod+x [urgent=latest] focus
 # key binding
 # ranger file manager
 bindsym $alt+f exec --no-startup-id termite -e ranger
@@ -325,7 +330,6 @@ bindsym $alt+w exec --no-startup-id google-chrome-stable
 bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
 # enable nsfw model
-#exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpaper/ &"
 bindsym ctrl+$mod+n exec --no-startup-id "~/.nsfw.sh &"
 
 # enable sfw model
@@ -348,7 +352,9 @@ exec --no-startup-id picom -b --inactive-dim 0.4
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # set wallpaper with feh
-exec --no-startup-id "~/.sfw.sh &"
+#exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpaper/ &"
+#exec --no-startup-id "~/.sfw.sh &"
+exec --no-startup-id "~/.start.sh ~/.wallpaper/ &"
 
 # start fcitx5
 exec --no-startup-id "fcitx5 &"
@@ -362,7 +368,10 @@ exec --no-startup-id "twmnd &"
 #exec --no-startup-id "gpaste-client &"
 
 # generate i3lock image
-exec --no-startup-id "$HOME/.i3lock-gen-image.sh ~/.wallpaper/ &"
+#exec --no-startup-id "$HOME/.i3lock-gen-image.sh ~/.wallpaper/ &"
+
+#auto lock screen
+exec --no-startup-id "xidlehook --not-when-audio --not-when-fullscreen --timer 120 '~/.lockscreen.sh' '' &"
 
 # my apps
 # qclash for proxy

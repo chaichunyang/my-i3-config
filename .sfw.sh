@@ -1,10 +1,18 @@
 #!/bin/sh
 # random a wallpaper and lockscreen image from ~/.wallpaper
 
-# wallpaper
-feh -rz --bg-fill --no-fehbg ~/.wallpaper/
+WALLPAPER=$(echo ~/.wallpaper/)
 
-# lockscreen
-~/.i3lock-gen-image.sh ~/.wallpaper/
+notify-send SFW STARTING
+
+feh -rz --bg-fill --no-fehbg ${WALLPAPER}
+
+# if has betterlockscreen
+if [ -f "/usr/bin/betterlockscreen" ]; then
+betterlockscreen -u ${WALLPAPER}
+else
+~/.i3lock-gen-image.sh ${WALLPAPER}
+fi
 
 notify-send SFW ENABLE
+
