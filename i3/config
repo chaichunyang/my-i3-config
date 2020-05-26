@@ -325,6 +325,7 @@ bindsym $alt+w exec --no-startup-id google-chrome-stable
 bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
 # enable nsfw model
+#exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpaper/ &"
 bindsym ctrl+$mod+n exec --no-startup-id "~/.nsfw.sh &"
 
 # enable sfw model
@@ -347,7 +348,7 @@ exec --no-startup-id picom -b --inactive-dim 0.4
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # set wallpaper with feh
-exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpaper/ &"
+exec --no-startup-id "~/.sfw.sh &"
 
 # start fcitx5
 exec --no-startup-id "fcitx5 &"
