@@ -9,7 +9,7 @@ cp -vp ./.i3lock-gen-image.sh ~/
 cp -vp ./.sfw.sh ~/
 cp -vp ./.nsfw.sh ~/
 
-cp -vp ./.wallpaper/ ~/
-cp -vp ./.wallpaper_nsfw/ ~/
+cp -rvp ./.wallpaper/ ~/
+cp -rvp ./.wallpaper_nsfw/ ~/
 echo "Done. please relogin into i3"
 
