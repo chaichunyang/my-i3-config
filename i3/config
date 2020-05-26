@@ -312,6 +312,12 @@ bindsym $alt+w exec --no-startup-id google-chrome-stable
 # qclash
 bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
+# enable nsfw model
+bindsym ctrl+$mod+n exec --no-startup-id "~/.nsfw.sh &"
+
+# enable sfw model
+bindsym ctrl+$mod+s exec --no-startup-id "~/.sfw.sh &"
+
 # screen shot
 #bindsym Print exec --no-startup-id xfce4-screenshooter -cf
 #bindsym $alt+a exec --no-startup-id xfce4-screenshooter -cr
