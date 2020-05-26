@@ -343,7 +343,7 @@ exec --no-startup-id "twmnd &"
 #exec --no-startup-id "gpaste-client &"
 
 # generate i3lock image
-exec --no-startup-id "$HOME/.i3lock-gen-image.sh &"
+exec --no-startup-id "$HOME/.i3lock-gen-image.sh ~/.wallpaper/ &"
 
 # my apps
 # qclash for proxy
