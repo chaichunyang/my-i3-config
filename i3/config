@@ -191,6 +191,18 @@ bindsym $mod+r mode "resize"
 #        position top
 #}
 
+
+bindsym $mod+$alt+j resize shrink width 10 px or 10 ppt
+bindsym $mod+$alt+k resize grow height 10 px or 10 ppt
+bindsym $mod+$alt+l resize shrink height 10 px or 10 ppt
+bindsym $mod+$alt+semicolon resize grow width 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+bindsym $mod+$alt+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+$alt+Down resize grow height 10 px or 10 ppt
+bindsym $mod+$alt+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+$alt+Right resize grow width 10 px or 10 ppt
+
 # set lock,logout,suspend,hibernate,reboot,shutdown
 set $Locker i3lock -i ~/.i3lock.png && sleep 1
 
