@@ -3,7 +3,7 @@ config i3wm from ZERO, this is some my config backup.
 ![screen](screenshots/screen.png)
 
 ## ToDo
-1. Auto lock screen after a few minutes
+1. Auto lock screen after a few minutes (done)
 2. Awesome Polybar
 
 ## Install
@@ -32,6 +32,8 @@ the `install.sh` script will replace your config file with this repository.
 - polybar
 - flameshot, for screent shot
 - twmn, for Desktop notifications
+- xidlehook, for auto lock
+- betterlockscreen (optional)
 
 ## key binding
 - ctrl+Mod+0: lock, logout, suspend, hibernate, shutdown
