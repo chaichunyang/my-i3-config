@@ -6,6 +6,10 @@ config i3wm from ZERO, this is some my config backup.
 1. Auto lock screen after a few minutes
 2. Awesome Polybar
 
+## Install
+### CAUTIONS
+the `install.sh` script will replace your config file with this repository.
+
 ## Important
 1. NetworkManager Front-ends (nmcli-dmenu curr)
 2. bar (polybar curr)
@@ -30,7 +34,7 @@ config i3wm from ZERO, this is some my config backup.
 - twmn, for Desktop notifications
 
 ## key binding
-- ctrl+Mod+0: Session lock, logout, suspend, hibernate, shutdown
+- ctrl+Mod+0: lock, logout, suspend, hibernate, shutdown
 - ctrl+Mod+l: lock screen
 - Print: print full screen
 - Alt+a: select a region
@@ -40,6 +44,8 @@ config i3wm from ZERO, this is some my config backup.
 - Alt+w: google-chrome
 - Alt+t: Telegram
 - Alt+c: qclash
+- ctrl+Mod+n: enable NSFW mode
+- ctrl+Mod+s: enable SFW mode
 
 ## i3status (use polybar instead)
 - Disk
