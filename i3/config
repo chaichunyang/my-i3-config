@@ -285,7 +285,7 @@ for_window [title="桌面 — Plasma"] kill; floating enable; border none
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
+#for_window [title="win7"] floating enable; border none
 for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
@@ -330,11 +330,15 @@ bindsym $alt+w exec --no-startup-id google-chrome-stable
 # qclash
 bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
-# enable nsfw model
+set $CurrMode SFW
+# enable nsfw mode
 bindsym ctrl+$mod+n exec --no-startup-id "~/.nsfw.sh &"
 
-# enable sfw model
+# enable sfw mode
 bindsym ctrl+$mod+s exec --no-startup-id "~/.sfw.sh &"
+
+# change wallpaper
+bindsym ctrl+$mod+c exec --no-startup-id "~/.randomwallpaper.sh &"
 
 # screen shot
 #bindsym Print exec --no-startup-id xfce4-screenshooter -cf
@@ -389,7 +393,8 @@ assign [class="VirtualBox Manager"] $ws5
 #for_window [class="VirtualBoxVM"] floating enable; border none;
 assign [class="code-oss"] $ws7
 
-
+for_window [class="netease-cloud-music"] floating enable; border none; resize 680 480; move position center
+assign [class="netease-cloud-music"] $ws6
 
 # polybar
 #
