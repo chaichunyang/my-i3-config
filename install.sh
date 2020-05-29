@@ -10,6 +10,7 @@ cp -vp ./.sfw.sh ~/
 cp -vp ./.nsfw.sh ~/
 cp -vp ./.lockscreen.sh ~/
 cp -vp ./.start.sh ~/
+cp -vp ./.randomwallpaper.sh ~/
 
 cp -rvp ./.wallpaper/ ~/
 cp -rvp ./.wallpaper_nsfw/ ~/

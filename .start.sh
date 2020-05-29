@@ -1,7 +1,9 @@
 #!/bin/sh
-feh -rz --no-fehbg --bg-fill ~/.wallpaper/
+WALLPAPER=$(echo ~/.wallpaper/)
 
-echo "~/.wallpaper/" > ~/.wallpaper.txt
+feh -rz --no-fehbg --bg-fill ${WALLPAPER}
+
+echo ${WALLPAPER} > ~/.wallpaper.txt
 
 if [ -f "/usr/bin/betterlockscreen" ]; then
 betterlockscreen -b 2 -u $1
