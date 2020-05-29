@@ -7,6 +7,8 @@ notify-send SFW STARTING
 
 feh -rz --bg-fill --no-fehbg ${WALLPAPER}
 
+echo ${WALLPAPER} > ~/.wallpaper.txt
+
 # if has betterlockscreen
 if [ -f "/usr/bin/betterlockscreen" ]; then
 betterlockscreen -u ${WALLPAPER}
