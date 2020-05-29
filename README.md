@@ -26,7 +26,7 @@ the `install.sh` script will replace your config file with this repository.
 - nm-applet, for network manager (optional)
 - nmcli-dmenu, for network manager with dmenu (seems good)
 - ranger, console file manager
-- ueberzug, for ranger perview image
+- ueberzug, for ranger preview image
 - thunar or dolphin, for GUI file manager
 - polkit-gnome-authentication-agent-1 or polkit-kde-authentication-agent-1, for Authentication agents
 - polybar
