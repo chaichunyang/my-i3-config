@@ -35,7 +35,7 @@ height = 27
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -64,15 +64,15 @@ tray-position = right
 tray-padding = 2
 tray-background = #0063ff
 
-;wm-restack = i3
+wm-restack = i3
 
 ;override-redirect = true
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-resize
+;cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
@@ -202,7 +202,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = #ffffff
 label = %percentage_used%%
 
 [module/wlan]
@@ -328,7 +328,8 @@ format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
+format-full-underline = #169914
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -353,9 +354,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = #12bfe6
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-underline = #ed151d
 
 label = %temperature-c%
 label-warn = %temperature-c%

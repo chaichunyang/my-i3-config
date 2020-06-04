@@ -386,6 +386,7 @@ exec --no-startup-id "/opt/qclash/qclash.sh"
 #exec --no-startup-id "google-chrome-stable &"
 
 assign [class="Google-chrome"] $ws2
+assign [class="firefox"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Termite"] $ws4
 assign [class="VirtualBox Manager"] $ws5
@@ -395,8 +396,8 @@ assign [class="code-oss"] $ws7
 
 for_window [class="netease-cloud-music"] floating enable; border none; resize 680 480; move position center
 assign [class="netease-cloud-music"] $ws6
+for_window [class="fcitx5-config-qt"] floating enable; border none;
 
 # polybar
-#
 exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 
