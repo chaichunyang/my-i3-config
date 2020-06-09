@@ -58,7 +58,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center = mpd
-modules-right = wlan eth backlight-acpi pulseaudio battery memory cpu temperature date powermenu
+modules-right = wlan eth backlight-acpi pulseaudio battery memory cpu temperature date
 
 tray-position = right
 tray-padding = 2
@@ -212,7 +212,7 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid% %downspeed%
+label-connected = %essid%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>

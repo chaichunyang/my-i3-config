@@ -299,6 +299,8 @@ for_window [class="plasmashell" window_type="notification"] floating enable, bor
 
 # for kde auto start powermanager
 exec --no-startup-id "/usr/lib/org_kde_powerdevil &"
+#exec --no-startup-id "xfce4-power-manager &"
+
 
 # for kde backlight
 #bindsym XF86MonBrightnessUp exec --no-startup-id qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness $(expr $(qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightness) + 375)
@@ -330,7 +332,6 @@ bindsym $alt+w exec --no-startup-id google-chrome-stable
 # qclash
 bindsym $alt+c exec --no-startup-id /opt/qclash/bin/qclash
 
-set $CurrMode SFW
 # enable nsfw mode
 bindsym ctrl+$mod+n exec --no-startup-id "~/.nsfw.sh &"
 
