@@ -4,6 +4,7 @@ cp -rvp ./i3status/ ~/.config/
 cp -rvp ./termite/ ~/.config/
 cp -rvp ./ranger/ ~/.config/
 cp -rvp ./polybar/ ~/.config/
+cp -rvp ./twmn/ ~/.config/
 
 cp -vp ./.i3lock-gen-image.sh ~/
 cp -vp ./.sfw.sh ~/
