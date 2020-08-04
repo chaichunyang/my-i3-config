@@ -5,10 +5,12 @@ feh -rz --no-fehbg --bg-fill ${WALLPAPER}
 
 echo ${WALLPAPER} > ~/.wallpaper.txt
 
+~/.start_conky.sh
+
 if [ -f "/usr/bin/betterlockscreen" ]; then
-betterlockscreen -b 2 -u $1
+betterlockscreen -u ${WALLPAPER}
 exit 0
 fi
 
-~/.i3lock-gen-image.sh $1
-
+~/.i3lock-gen-image.sh ${WALLPAPER}
+exit 0

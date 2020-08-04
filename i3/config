@@ -48,9 +48,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+set $terminal termite
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -278,7 +279,7 @@ mode "$mode_gaps_outer" {
 
 # support for kde plasma
 for_window [class="yakuake"] floating enable
-for_window [class="systemsettings"] floating enable
+#for_window [class="systemsettings"] floating enable
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 for_window [title="桌面 — Plasma"] kill; floating enable; border none
@@ -313,7 +314,7 @@ for_window [urgent=latest] focus
 bindsym $mod+x [urgent=latest] focus
 # key binding
 # ranger file manager
-bindsym $alt+f exec --no-startup-id termite -e ranger
+bindsym $alt+f exec --no-startup-id $terminal -e ranger
 
 # thunar file manager
 #bindsym $alt+e exec --no-startup-id thunar
@@ -321,7 +322,7 @@ bindsym $alt+e exec --no-startup-id dolphin
 
 
 # htop
-bindsym ctrl+Shift+Escape exec termite -e htop
+bindsym ctrl+Shift+Escape exec $terminal -e htop
 
 # telegram
 bindsym $alt+t exec --no-startup-id telegram-desktop
@@ -360,7 +361,7 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # set wallpaper with feh
 #exec --no-startup-id "feh --recursive --randomize --no-fehbg --bg-fill ~/.wallpaper/ &"
 #exec --no-startup-id "~/.sfw.sh &"
-exec --no-startup-id "~/.start.sh ~/.wallpaper/ &"
+exec --no-startup-id "~/.start.sh &"
 
 # start fcitx5
 exec --no-startup-id "fcitx5 &"

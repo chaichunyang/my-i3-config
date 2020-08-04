@@ -11,8 +11,10 @@ cp -vp ./.nsfw.sh ~/
 cp -vp ./.lockscreen.sh ~/
 cp -vp ./.start.sh ~/
 cp -vp ./.randomwallpaper.sh ~/
+cp -vp ./.start_conky.sh ~/
 
 cp -rvp ./.wallpaper/ ~/
 cp -rvp ./.wallpaper_nsfw/ ~/
+cp -rvp ./.conky_configs/ ~/
 echo "Done. please relogin into i3"
 
